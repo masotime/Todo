@@ -30,6 +30,8 @@
                         
                             <g:sortableColumn property="telephone" title="${message(code: 'person.telephone.label', default: 'Telephone')}" />
                         
+                        	<!-- action column -->
+                        	<th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +45,13 @@
                             <td>${fieldValue(bean: personInstance, field: "email")}</td>
                         
                             <td>${fieldValue(bean: personInstance, field: "telephone")}</td>
+                        
+                        	<!-- action column -->
+                        	<td>
+                        		<g:link action="show" id="${personInstance.id}"><img src="${createLink(uri: '/images/icons/Search.png')}" /></g:link>
+                        		<g:link action="edit" id="${personInstance.id}"><img src="${createLink(uri: '/images/icons/Modify.png')}" /></g:link>
+                        		<g:link action="delete" id="${personInstance.id}"><img src="${createLink(uri: '/images/icons/Delete.png')}" /></g:link>
+                        	</td>
                         
                         </tr>
                     </g:each>

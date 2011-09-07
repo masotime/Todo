@@ -28,4 +28,8 @@ class Action {
 	static mapping = {
 		order column: "`ORDER`"
 	}
+	
+	String toString() {
+		description
+	}
 }

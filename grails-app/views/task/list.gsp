@@ -34,6 +34,18 @@
                         
                             <th><g:message code="task.assignedBy.label" default="Assigned By" /></th>
                         
+                            <g:sortableColumn property="notes" title="${message(code: 'task.notes.label', default: 'Notes')}" />
+                        
+                            <g:sortableColumn property="priority" title="${message(code: 'task.priority.label', default: 'Priority')}" />
+                        
+                            <g:sortableColumn property="dateCreated" title="${message(code: 'task.dateCreated.label', default: 'Date Created')}" />
+                        
+                            <g:sortableColumn property="lastUpdated" title="${message(code: 'task.lastUpdated.label', default: 'Last Updated')}" />
+                        
+                            <th><g:message code="task.taskGroup.label" default="Task Group" /></th>
+                        
+                        	<!-- action column -->
+                        	<th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +63,23 @@
                             <td><g:formatDate date="${taskInstance.completeBy}" /></td>
                         
                             <td>${fieldValue(bean: taskInstance, field: "assignedBy")}</td>
+                        
+                            <td>${fieldValue(bean: taskInstance, field: "notes")}</td>
+                        
+                            <td>${fieldValue(bean: taskInstance, field: "priority")}</td>
+                        
+                            <td><g:formatDate date="${taskInstance.dateCreated}" /></td>
+                        
+                            <td><g:formatDate date="${taskInstance.lastUpdated}" /></td>
+                        
+                            <td>${fieldValue(bean: taskInstance, field: "taskGroup")}</td>
+                        
+                        	<!-- action column -->
+                        	<td>
+                        		<g:link action="show" id="${taskInstance.id}"><img src="${createLink(uri: '/images/icons/Search.png')}" /></g:link>
+                        		<g:link action="edit" id="${taskInstance.id}"><img src="${createLink(uri: '/images/icons/Modify.png')}" /></g:link>
+                        		<g:link action="delete" id="${taskInstance.id}"><img src="${createLink(uri: '/images/icons/Delete.png')}" /></g:link>
+                        	</td>
                         
                         </tr>
                     </g:each>

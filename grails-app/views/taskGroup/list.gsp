@@ -32,6 +32,8 @@
                         
                             <g:sortableColumn property="lastUpdated" title="${message(code: 'taskGroup.lastUpdated.label', default: 'Last Updated')}" />
                         
+                        	<!-- action column -->
+                        	<th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +49,13 @@
                             <td>${fieldValue(bean: taskGroupInstance, field: "description")}</td>
                         
                             <td><g:formatDate date="${taskGroupInstance.lastUpdated}" /></td>
+                        
+                        	<!-- action column -->
+                        	<td>
+                        		<g:link action="show" id="${taskGroupInstance.id}"><img src="${createLink(uri: '/images/icons/Search.png')}" /></g:link>
+                        		<g:link action="edit" id="${taskGroupInstance.id}"><img src="${createLink(uri: '/images/icons/Modify.png')}" /></g:link>
+                        		<g:link action="delete" id="${taskGroupInstance.id}"><img src="${createLink(uri: '/images/icons/Delete.png')}" /></g:link>
+                        	</td>
                         
                         </tr>
                     </g:each>

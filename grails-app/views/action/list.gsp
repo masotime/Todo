@@ -34,6 +34,16 @@
                         
                             <th><g:message code="action.waitingOn.label" default="Waiting On" /></th>
                         
+                            <g:sortableColumn property="order" title="${message(code: 'action.order.label', default: 'Order')}" />
+                        
+                            <g:sortableColumn property="dateCreated" title="${message(code: 'action.dateCreated.label', default: 'Date Created')}" />
+                        
+                            <g:sortableColumn property="lastUpdated" title="${message(code: 'action.lastUpdated.label', default: 'Last Updated')}" />
+                        
+                            <th><g:message code="action.task.label" default="Task" /></th>
+                        
+                        	<!-- action column -->
+                        	<th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +61,21 @@
                             <td>${fieldValue(bean: actionInstance, field: "waitingFor")}</td>
                         
                             <td>${fieldValue(bean: actionInstance, field: "waitingOn")}</td>
+                        
+                            <td>${fieldValue(bean: actionInstance, field: "order")}</td>
+                        
+                            <td><g:formatDate date="${actionInstance.dateCreated}" /></td>
+                        
+                            <td><g:formatDate date="${actionInstance.lastUpdated}" /></td>
+                        
+                            <td>${fieldValue(bean: actionInstance, field: "task")}</td>
+                        
+                        	<!-- action column -->
+                        	<td>
+                        		<g:link action="show" id="${actionInstance.id}"><img src="${createLink(uri: '/images/icons/Search.png')}" /></g:link>
+                        		<g:link action="edit" id="${actionInstance.id}"><img src="${createLink(uri: '/images/icons/Modify.png')}" /></g:link>
+                        		<g:link action="delete" id="${actionInstance.id}"><img src="${createLink(uri: '/images/icons/Delete.png')}" /></g:link>
+                        	</td>
                         
                         </tr>
                     </g:each>

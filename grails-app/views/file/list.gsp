@@ -34,6 +34,8 @@
                         
                             <th><g:message code="file.task.label" default="Task" /></th>
                         
+                        	<!-- action column -->
+                        	<th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +53,13 @@
                             <td><g:formatDate date="${fileInstance.lastUpdated}" /></td>
                         
                             <td>${fieldValue(bean: fileInstance, field: "task")}</td>
+                        
+                        	<!-- action column -->
+                        	<td>
+                        		<g:link action="show" id="${fileInstance.id}"><img src="${createLink(uri: '/images/icons/Search.png')}" /></g:link>
+                        		<g:link action="edit" id="${fileInstance.id}"><img src="${createLink(uri: '/images/icons/Modify.png')}" /></g:link>
+                        		<g:link action="delete" id="${fileInstance.id}"><img src="${createLink(uri: '/images/icons/Delete.png')}" /></g:link>
+                        	</td>
                         
                         </tr>
                     </g:each>

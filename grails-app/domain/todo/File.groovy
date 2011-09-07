@@ -17,4 +17,8 @@ class File {
 		name nullable: false, blank: false
 		fileContent nullable: false
     }
+	
+	String toString() {
+		name
+	}
 }

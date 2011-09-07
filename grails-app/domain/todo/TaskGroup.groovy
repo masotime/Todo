@@ -13,4 +13,8 @@ class TaskGroup {
     }
 	
 	static hasMany = [tasks: Task]
+	
+	String toString() {
+		name
+	}
 }
