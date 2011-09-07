@@ -79,6 +79,19 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="task.actions.label" default="Actions" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${taskInstance.actions}" var="a">
+                                    <li><g:link controller="action" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="task.dateCreated.label" default="Date Created" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${taskInstance?.dateCreated}" /></td>
@@ -102,6 +115,26 @@
                             <td valign="top" class="name"><g:message code="task.lastUpdated.label" default="Last Updated" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${taskInstance?.lastUpdated}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="task.participants.label" default="Participants" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${taskInstance.participants}" var="p">
+                                    <li><g:link controller="person" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="task.taskGroup.label" default="Task Group" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="taskGroup" action="show" id="${taskInstance?.taskGroup?.id}">${taskInstance?.taskGroup?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     

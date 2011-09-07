@@ -2,7 +2,7 @@ package todo
 
 import grails.test.*
 
-class TaskControllerTests extends ControllerUnitTestCase {
+class TaskGroupTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
     }

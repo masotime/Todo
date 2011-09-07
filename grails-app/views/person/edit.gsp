@@ -58,6 +58,40 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="givenTasks"><g:message code="person.givenTasks.label" default="Given Tasks" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: personInstance, field: 'givenTasks', 'errors')}">
+                                    <g:select name="givenTasks" from="${todo.Task.list()}" multiple="yes" optionKey="id" size="5" value="${personInstance?.givenTasks*.id}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="requiredActions"><g:message code="person.requiredActions.label" default="Required Actions" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: personInstance, field: 'requiredActions', 'errors')}">
+                                    
+<ul>
+<g:each in="${personInstance?.requiredActions?}" var="r">
+    <li><g:link controller="action" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+</g:each>
+</ul>
+<g:link controller="action" action="create" params="['person.id': personInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'action.label', default: 'Action')])}</g:link>
+
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="tasks"><g:message code="person.tasks.label" default="Tasks" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: personInstance, field: 'tasks', 'errors')}">
+                                    <g:select name="tasks" from="${todo.Task.list()}" multiple="yes" optionKey="id" size="5" value="${personInstance?.tasks*.id}" />
+                                </td>
+                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>

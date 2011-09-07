@@ -1,10 +1,10 @@
 
-<%@ page import="todo.Person" %>
+<%@ page import="todo.TaskGroup" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'person.label', default: 'Person')}" />
+        <g:set var="entityName" value="${message(code: 'taskGroup.label', default: 'TaskGroup')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -23,65 +23,46 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.id.label" default="Id" /></td>
+                            <td valign="top" class="name"><g:message code="taskGroup.id.label" default="Id" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: personInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.name.label" default="Name" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: personInstance, field: "name")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: taskGroupInstance, field: "id")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.email.label" default="Email" /></td>
+                            <td valign="top" class="name"><g:message code="taskGroup.name.label" default="Name" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: personInstance, field: "email")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.telephone.label" default="Telephone" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: personInstance, field: "telephone")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: taskGroupInstance, field: "name")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.givenTasks.label" default="Given Tasks" /></td>
+                            <td valign="top" class="name"><g:message code="taskGroup.dateCreated.label" default="Date Created" /></td>
+                            
+                            <td valign="top" class="value"><g:formatDate date="${taskGroupInstance?.dateCreated}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="taskGroup.description.label" default="Description" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: taskGroupInstance, field: "description")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="taskGroup.lastUpdated.label" default="Last Updated" /></td>
+                            
+                            <td valign="top" class="value"><g:formatDate date="${taskGroupInstance?.lastUpdated}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="taskGroup.tasks.label" default="Tasks" /></td>
                             
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
-                                <g:each in="${personInstance.givenTasks}" var="g">
-                                    <li><g:link controller="task" action="show" id="${g.id}">${g?.encodeAsHTML()}</g:link></li>
-                                </g:each>
-                                </ul>
-                            </td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.requiredActions.label" default="Required Actions" /></td>
-                            
-                            <td valign="top" style="text-align: left;" class="value">
-                                <ul>
-                                <g:each in="${personInstance.requiredActions}" var="r">
-                                    <li><g:link controller="action" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
-                                </g:each>
-                                </ul>
-                            </td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.tasks.label" default="Tasks" /></td>
-                            
-                            <td valign="top" style="text-align: left;" class="value">
-                                <ul>
-                                <g:each in="${personInstance.tasks}" var="t">
+                                <g:each in="${taskGroupInstance.tasks}" var="t">
                                     <li><g:link controller="task" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
@@ -94,7 +75,7 @@
             </div>
             <div class="buttons">
                 <g:form>
-                    <g:hiddenField name="id" value="${personInstance?.id}" />
+                    <g:hiddenField name="id" value="${taskGroupInstance?.id}" />
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>

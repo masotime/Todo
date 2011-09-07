@@ -91,6 +91,15 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="taskGroup"><g:message code="task.taskGroup.label" default="Task Group" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'taskGroup', 'errors')}">
+                                    <g:select name="taskGroup.id" from="${todo.TaskGroup.list()}" optionKey="id" value="${taskInstance?.taskGroup?.id}"  />
+                                </td>
+                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>

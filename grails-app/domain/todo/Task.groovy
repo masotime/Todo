@@ -2,6 +2,7 @@ package todo
 
 class Task {
 	
+	TaskGroup taskGroup
 	String title
 	String description
 	Date dateAssigned
@@ -25,5 +26,10 @@ class Task {
 		
     }	
 	
-	static hasMany = [files: File]
+	static hasMany = [files: File, actions: Action, participants: Person]
+	static belongsTo = [TaskGroup, Person]
+	
+	String toString() {
+		title
+	}
 }

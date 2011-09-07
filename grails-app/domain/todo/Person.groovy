@@ -12,6 +12,8 @@ class Person {
 		telephone nullable: true, blank: true
     }
 	
+	static hasMany = [givenTasks: Task, requiredActions: Action, tasks: Task]
+	
 	String toString() {
 		name
 	}

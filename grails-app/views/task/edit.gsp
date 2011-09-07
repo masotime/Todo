@@ -96,6 +96,22 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                  <label for="actions"><g:message code="task.actions.label" default="Actions" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'actions', 'errors')}">
+                                    
+<ul>
+<g:each in="${taskInstance?.actions?}" var="a">
+    <li><g:link controller="action" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
+</g:each>
+</ul>
+<g:link controller="action" action="create" params="['task.id': taskInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'action.label', default: 'Action')])}</g:link>
+
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                   <label for="files"><g:message code="task.files.label" default="Files" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'files', 'errors')}">
@@ -107,6 +123,24 @@
 </ul>
 <g:link controller="file" action="create" params="['task.id': taskInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'file.label', default: 'File')])}</g:link>
 
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="participants"><g:message code="task.participants.label" default="Participants" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'participants', 'errors')}">
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="taskGroup"><g:message code="task.taskGroup.label" default="Task Group" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'taskGroup', 'errors')}">
+                                    <g:select name="taskGroup.id" from="${todo.TaskGroup.list()}" optionKey="id" value="${taskInstance?.taskGroup?.id}"  />
                                 </td>
                             </tr>
                         
